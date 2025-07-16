@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Library</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Book Library</h1>
+    <div class="books"></div>
+    <div class="createBook"><button id="openDialog">New Book</button></div>
+
+    <dialog id="newBookDialog">
+      <form method="dialog" id="newBookForm">
+        <label for="bookName">
+          What is the name of this book:
+          <input
+            type="text"
+            name="bookName"
+            placeholder="e.g A day in Heaven"
+            required
+          />
+        </label>
+        <label for="author">
+          Who is the author of this book:
+          <input
+            type="text"
+            name="author"
+            placeholder="e.g Martin Luther King"
+            required
+          />
+        </label>
+        <label for="numberOfPages"
+          >How many pages does the book have:
+          <input type="number" name="numberOfPages" placeholder="e.g 300"
+        /></label>
+
+        <div class="formBtns">
+          <button type="submit">Create</button>
+          <button type="reset" class="discard">Discard</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="idBtn">
+      <p class="bookId"></p>
+      <p></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
