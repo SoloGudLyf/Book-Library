@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Library</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>Book Library</h1>
@@ -30,17 +31,20 @@
             required
         /></label>
         <label for="numberOfPages"
-          >Number of Pages :<input
+          >Number of Pages :
+          <input
             name="numberOfPages"
             type="number"
             placeholder="e.g 60"
             required
         /></label>
-        <label for="readBook"
-          ><input type="checkbox" name="readBook" /> Read</label
-        >
-        <button type="submit">Create</button>
-        <button type="reset">Discard</button>
+        <label for="readBook">Read</label>
+        <input type="checkbox" name="readBook" class="formCheckbox" />
+
+        <div class="dialogBtn">
+          <button type="submit">Create</button>
+          <button type="reset" class="reset">Discard</button>
+        </div>
       </form>
     </dialog>
 

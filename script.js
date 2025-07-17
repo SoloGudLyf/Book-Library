@@ -21,6 +21,8 @@ function Book(
 let book1 = new Book("My book", "Myself", 34, true);
 myLibrary.push(book1);
 
+let closebtn = document.querySelector(".reset");
+
 function displayBookToPage() {
   let parent = document.querySelector(".gridBox");
   parent.innerHTML = "";
@@ -28,19 +30,23 @@ function displayBookToPage() {
     let card = document.createElement("article");
     card.classList.add("book");
     card.setAttribute("data-id", book.Id);
-    let bookInfo = `Book name : <span class="book-info">${
+    let bookInfo = `<span class="title">Book name : </span><span class="book-info">${
       book.name
     }</span> <br> 
-    Author : <span class="book-info">${book.author}</span> <br>
-    Number of Pages : <span class="book-info">${book.numberOfPages}</span> <br>
-    <label for="readBook">Read </label><input type="checkbox" name="readBook" id="readBook-${
+    <span class="title">Author : </span><span class="book-info">${
+      book.author
+    }</span> <br>
+    <span class="title">Number of Pages : </span><span class="book-info">${
+      book.numberOfPages
+    }</span> <br>
+    <label for="readBook">Read <input type="checkbox" name="readBook" id="readBook-${
       book.Id
-    }" ${book.readBook ? "checked" : ""}> <br>
-    Book ID : <span class="book-info">${book.Id}</span> <br>
+    }" ${book.readBook ? "checked" : ""}></label> <br>
     <button class="delete-btn" data-id="${book.Id}">Delete Book</button>`;
     card.innerHTML = bookInfo;
     parent.appendChild(card);
   }
+  closebtn.click();
   setDeleteListeners();
   toggleReadBook();
   console.log(myLibrary);
@@ -113,3 +119,9 @@ function setDeleteListeners() {
     });
   }
 }
+
+// Clear form data and close dialog
+
+form.addEventListener("reset", () => {
+  dialog.close();
+});
