@@ -8,6 +8,42 @@
   <body>
     <h1>Book Library</h1>
     <main class="gridBox"></main>
+    <button class="openDialog">Add Book</button>
+
+    <!-- Add Dialog -->
+    <dialog>
+      <form method="dialog">
+        <label for="bookName"
+          >Book Name:
+          <input
+            name="bookName"
+            type="text"
+            placeholder="e.g Cockcrow"
+            required
+        /></label>
+        <label for="author"
+          >Author:
+          <input
+            type="text"
+            name="author"
+            placeholder="e.g Lawrence Darmani"
+            required
+        /></label>
+        <label for="numberOfPages"
+          >Number of Pages :<input
+            name="numberOfPages"
+            type="number"
+            placeholder="e.g 60"
+            required
+        /></label>
+        <label for="readBook"
+          ><input type="checkbox" name="readBook" /> Read</label
+        >
+        <button type="submit">Create</button>
+        <button type="reset">Discard</button>
+      </form>
+    </dialog>
+
     <script src="script.js"></script>
   </body>
 </html>
