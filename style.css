@@ -6,6 +6,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  width: 80vw;
+}
+main {
+  width: 100%;
+}
 
 h1 {
   text-align: center;
@@ -36,7 +42,7 @@ article > :not(.book-info) {
 }
 
 article > button {
-  width: 20vw;
+  width: 15vw;
   height: 4vh;
   padding: 5px;
   border-radius: 10px;
@@ -79,6 +85,13 @@ label {
 
 dialog {
   margin: auto;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .openDialog:hover,
