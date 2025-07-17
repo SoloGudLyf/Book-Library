@@ -27,6 +27,7 @@ function displayBookToPage() {
   for (let book of myLibrary) {
     let card = document.createElement("article");
     card.classList.add("book");
+    card.setAttribute("data-id", book.Id);
     let bookInfo = `Book name : <span class="book-info">${
       book.name
     }</span> <br> 
@@ -35,10 +36,14 @@ function displayBookToPage() {
     <label for="readBook">Read </label><input type="checkbox" name="readBook" id="readBook-${
       book.Id
     }" ${book.readBook ? "checked" : ""}> <br>
-    Book ID : <span class="book-info">${book.Id}</span>`;
+    Book ID : <span class="book-info">${book.Id}</span> <br>
+    <button class="delete-btn" data-id="${book.Id}">Delete Book</button>`;
     card.innerHTML = bookInfo;
     parent.appendChild(card);
   }
+  setDeleteListeners();
+  toggleReadBook();
+  console.log(myLibrary);
 }
 
 // Show Dialog and get form data
@@ -69,3 +74,42 @@ function getFormInput() {
 
 getFormInput();
 displayBookToPage();
+
+// Allow User to toggle read checkbox
+function toggleReadBook() {
+  let checkbox = document.querySelectorAll(
+    "input[type='checkbox'][name='readBook']"
+  );
+  for (let box of checkbox) {
+    box.addEventListener("change", function (e) {
+      let checkboxId = e.target.id.split("readBook-")[1];
+      if (e.target.checked) {
+        for (let book of myLibrary) {
+          if (book.Id == checkboxId) {
+            book.readBook = true;
+          } else {
+            book.readBook = false;
+          }
+        }
+      }
+    });
+  }
+}
+
+// Allow user to delete book
+
+function setDeleteListeners() {
+  let deleteBtn = document.getElementsByClassName("delete-btn");
+
+  for (let btn of deleteBtn) {
+    btn.addEventListener("click", function (e) {
+      let btnId = e.target.dataset.id;
+      for (let i = 0; i < myLibrary.length; i++) {
+        if (btnId == myLibrary[i].Id) {
+          myLibrary.splice(i, 1);
+          displayBookToPage();
+        }
+      }
+    });
+  }
+}
